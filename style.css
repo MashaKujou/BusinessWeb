@@ -373,6 +373,29 @@
             height: 45px;
             border-radius: 5px;
             border: 3px solid var(--main-color);
+            background-color: var(white);
+            box-shadow: 4px 4px var(--main-color);
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--font-color);
+            cursor: pointer;
+            display: block;
+            margin: 0 auto; /* Reset horizontal centering */
+            margin-top: 70px; /* Add 50px of space from the top */
+            margin-bottom: 20px; /* Keep the original bottom spacing */
+        }
+
+        .button-submit:active {
+            box-shadow: 0px 0px var(--main-color);
+            transform: translate(3px, 3px);
+        }
+
+        /* Add this to your CSS file */
+        #support-form .btn-primary {
+            width: 150px;
+            height: 45px;
+            border-radius: 5px;
+            border: 3px solid var(--main-color);
             background-color: var(--bg-color);
             box-shadow: 4px 4px var(--main-color);
             font-size: 17px;
@@ -380,10 +403,12 @@
             color: var(--font-color);
             cursor: pointer;
             display: block;
-            margin: 20px auto; /* Ensures button stays centered */
+            margin: 0 auto; /* Reset horizontal centering */
+            margin-top: 70px; /* Add 50px of space from the top */
+            margin-bottom: 20px; /* Keep the original bottom spacing */
         }
 
-        .button-submit:active {
+        #support-form .btn-primary:active {
             box-shadow: 0px 0px var(--main-color);
             transform: translate(3px, 3px);
         }
@@ -475,6 +500,13 @@
             background-color: rgba(255, 255, 255, 0.1);
             border: none;
             color: white;
+        }
+
+        .contact-form .btn-primary {
+            margin-top: 70px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .contact-form .form-control::placeholder {
