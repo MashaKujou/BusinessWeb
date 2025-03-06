@@ -200,6 +200,139 @@ const newsArticles = {
   }
 };
 
+
+// Add the HTML structure for the Privacy Policy and Terms of Service modals
+document.body.insertAdjacentHTML('beforeend', `
+  <!-- Privacy Policy Modal -->
+  <div id="privacy-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 1000; overflow-y: auto;">
+    <div style="position: relative; background-color: white; margin: 50px auto; padding: 20px; width: 80%; max-width: 800px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); max-height: 80vh; overflow-y: auto;">
+      <span id="close-privacy-modal" style="position: absolute; top: 10px; right: 20px; font-size: 24px; cursor: pointer;">&times;</span>
+      <h2 style="color: #1e293b; margin-bottom: 20px;">Privacy Policy</h2>
+      <div class="privacy-content">
+        <p>At MMM Innovation, we are committed to protecting your privacy. We have developed this policy to ensure transparency in how we collect, use, and safeguard your data while providing basic troubleshooting solutions for laptops.</p>
+        
+        <h3>1. Information We Collect</h3>
+        <ul>
+          <li><strong>Personal Information:</strong> Name, email, and contact number (only when voluntarily provided).</li>
+          <li><strong>Device Information:</strong> Laptop model, operating system, and basic issue descriptions.</li>
+          <li><strong>Usage Data:</strong> Feedback and interaction data to improve our troubleshooting services.</li>
+        </ul>
+        
+        <h3>2. How We Use Your Information</h3>
+        <ul>
+          <li>To provide effective troubleshooting assistance.</li>
+          <li>To enhance and improve our services based on user feedback.</li>
+          <li>To notify users of service updates or improvements.</li>
+        </ul>
+        
+        <h3>3. Data Protection & Security</h3>
+        <ul>
+          <li>We take reasonable measures to protect user data from unauthorized access or misuse.</li>
+          <li>Users are responsible for securing their own devices and data.</li>
+        </ul>
+        
+        <h3>4. Information Sharing</h3>
+        <ul>
+          <li>We do not sell or share user information with third parties.</li>
+          <li>We may disclose information if required by law or to protect our rights.</li>
+        </ul>
+        
+        <h3>5. User Rights</h3>
+        <ul>
+          <li>Users may request access, updates, or deletion of their personal information.</li>
+          <li>Users can opt out of communications at any time.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Terms of Service Modal -->
+  <div id="terms-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 1000; overflow-y: auto;">
+    <div style="position: relative; background-color: white; margin: 50px auto; padding: 20px; width: 80%; max-width: 800px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); max-height: 80vh; overflow-y: auto;">
+      <span id="close-terms-modal" style="position: absolute; top: 10px; right: 20px; font-size: 24px; cursor: pointer;">&times;</span>
+      <h2 style="color: #1e293b; margin-bottom: 20px;">Terms of Service</h2>
+      <div class="terms-content">
+        <p>By using MMM Innovation, you agree to the following terms:</p>
+        
+        <h3>1. Service Overview</h3>
+        <ul>
+          <li>We provide basic laptop troubleshooting designed for non-techy individuals.</li>
+          <li>Our solutions are for educational and assistance purposes only and do not replace professional IT services.</li>
+        </ul>
+        
+        <h3>2. User Responsibilities</h3>
+        <ul>
+          <li>Users must provide accurate information about their device and issues.</li>
+          <li>Users acknowledge that troubleshooting solutions may vary by laptop brand and model.</li>
+        </ul>
+        
+        <h3>3. Limitation of Liability</h3>
+        <ul>
+          <li>MMM Innovation is not responsible for data loss or additional issues that may arise from troubleshooting steps.</li>
+          <li>Users are advised to back up important files before applying troubleshooting solutions.</li>
+        </ul>
+        
+        <h3>4. Changes to These Terms</h3>
+        <ul>
+          <li>We may update this policy as our business evolves.</li>
+          <li>Users will be notified of major updates through our official channels.</li>
+        </ul>
+        
+        <p>By using MMM Innovation, you confirm that you have read, understood, and agreed to our Privacy Policy and Terms of Service.</p>
+      </div>
+    </div>
+  </div>
+`);
+
+// Add event listeners for the footer links
+document.addEventListener('DOMContentLoaded', function() {
+  // Get the footer links
+  const footerLinks = document.querySelectorAll('.footer-links li a');
+  
+  // Add click event listeners to the Privacy Policy and Terms of Service links
+  footerLinks.forEach(link => {
+    if (link.textContent === 'Privacy Policy') {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('privacy-modal').style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      });
+    } else if (link.textContent === 'Terms of Service') {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('terms-modal').style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      });
+    }
+  });
+  
+  // Close modals when clicking the X
+  document.getElementById('close-privacy-modal').addEventListener('click', function() {
+    document.getElementById('privacy-modal').style.display = 'none';
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+  });
+  
+  document.getElementById('close-terms-modal').addEventListener('click', function() {
+    document.getElementById('terms-modal').style.display = 'none';
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+  });
+  
+  // Close modals when clicking outside the content area
+  document.getElementById('privacy-modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.style.display = 'none';
+      document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
+  });
+  
+  document.getElementById('terms-modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.style.display = 'none';
+      document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
+  });
+});
+
 // Add click handlers for Read More buttons
 document.addEventListener('DOMContentLoaded', function() {
   // Map each news card to its content ID
@@ -245,5 +378,45 @@ document.addEventListener('DOMContentLoaded', function() {
       this.style.display = 'none';
       document.body.style.overflow = 'auto'; // Re-enable scrolling
     }
+  });
+
+// Add event listeners for footer links
+document.addEventListener('DOMContentLoaded', function() {
+  // Add event listeners to the Privacy Policy and Terms of Service links in footer
+  const footerLinks = document.querySelectorAll('.footer-links li a');
+  
+  footerLinks.forEach(link => {
+    if (link.textContent === 'Privacy Policy') {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Populate the modal with Privacy Policy content
+        document.getElementById('modal-title').innerText = legalArticles["privacy-policy"].title;
+        document.getElementById('modal-date').innerText = legalArticles["privacy-policy"].date;
+        document.getElementById('modal-content').innerHTML = legalArticles["privacy-policy"].content;
+        
+        // Show the modal
+        document.getElementById('news-modal').style.display = 'block';
+        
+        // Prevent scrolling on the body
+        document.body.style.overflow = 'hidden';
+      });
+    } else if (link.textContent === 'Terms of Service') {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Populate the modal with Terms of Service content
+        document.getElementById('modal-title').innerText = legalArticles["terms-of-service"].title;
+        document.getElementById('modal-date').innerText = legalArticles["terms-of-service"].date;
+        document.getElementById('modal-content').innerHTML = legalArticles["terms-of-service"].content;
+        
+        // Show the modal
+        document.getElementById('news-modal').style.display = 'block';
+        
+        // Prevent scrolling on the body
+        document.body.style.overflow = 'hidden';
+      });
+    }
+  });
   });
 });
