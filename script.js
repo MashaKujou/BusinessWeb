@@ -304,12 +304,13 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = 'hidden'; // Prevent scrolling
       });
     } else if (link.textContent === 'Apply Now') {
-        link.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.open('https://docs.google.com/forms/d/e/1FAIpQLScQjxB78RBALPhYNNqjtETE_BEpLHPta_Q_KzylTYsrksl8nw/viewform', '_blank');
-        }
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.open('https://docs.google.com/forms/d/e/1FAIpQLScQjxB78RBALPhYNNqjtETE_BEpLHPta_Q_KzylTYsrksl8nw/viewform', '_blank');
+      });
     }
   });
+
   
   // Close modals when clicking the X
   document.getElementById('close-privacy-modal').addEventListener('click', function() {
