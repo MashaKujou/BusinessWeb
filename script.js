@@ -303,6 +303,11 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('terms-modal').style.display = 'block';
         document.body.style.overflow = 'hidden'; // Prevent scrolling
       });
+    } else if (link.textContent === 'Apply Now') {
+        link.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.open('https://docs.google.com/forms/d/e/1FAIpQLScQjxB78RBALPhYNNqjtETE_BEpLHPta_Q_KzylTYsrksl8nw/viewform', '_blank');
+        }
     }
   });
   
