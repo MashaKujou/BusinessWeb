@@ -4,14 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MMM Innovation - Hardware & Software Support</title>
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="top"></div>
     <!-- Header -->
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">MMM <span>Innovation</span></a>
+                <a href="https://mashakujou.github.io/BusinessWeb/" target="_blank" class="logo">
+                    <img src="images/image.png" alt="MMM Innovation" class="logo-image">
+                    <svg width="0" height="0">
+                        <filter id="outline-effect">
+                            <feMorphology operator="dilate" radius="3" in="SourceAlpha" result="expanded" />
+                            <feFlood flood-color="red" result="color" />
+                            <feComposite in="color" in2="expanded" operator="in" />
+                            <feMerge>
+                                <feMergeNode />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                        </filter>
+                    </svg>
+                    <ul class="menu-links">
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#application">Get Support</a></li>
+                        <li><a href="#news">Tech News</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </a>
+                
+                
+
                 <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
                 <ul class="nav-links">
                     <li><a href="#services">Services</a></li>
@@ -274,7 +298,7 @@
     <footer>
         <div class="container">
             <ul class="footer-links">
-                <li><a href="#">Home</a></li>
+                <li><a href="#top">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#news">News</a></li>
                 <li><a href="#contact">Contact</a></li>
