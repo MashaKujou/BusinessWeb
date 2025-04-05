@@ -8,6 +8,7 @@
             --light-gray: #e2e8f0;
         }
         
+        
         * {
             margin: 0;
             padding: 0;
@@ -103,19 +104,62 @@
             align-items: center;
         }
         
+        /* Logo Styling */
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
             display: flex;
             align-items: center;
+            margin-bottom: 20px;
         }
-        
-        .logo span {
-            color: var(--secondary);
+
+        .logo-image {
+            height: 120px;
+            width: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            filter: url(#outline-effect);
+            filter: drop-shadow(2px 0 gold) drop-shadow(-2px 0 silver)
         }
-        
+
+        .logo-image:hover {
+            transform: scale(1.1);
+        }
+
+        /* Menu Links */
+        .menu-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;  /* Ensures vertical alignment */
+            gap: 120px;  /* Adjust spacing between links */
+        }
+
+        .menu-links li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu-links a {
+            color: white;
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 18px;
+            transition: color 0.3s;
+            display: inline-block;
+        }
+
+        .menu-links a:hover {
+            color: #f4b400;
+        }
+
+        /* Hide menu on mobile (screen width <= 768px) */
+        @media screen and (max-width: 768px) {
+            .menu-links {
+                display: none;
+            }
+        }
         /* Mobile Menu Styles */
         .nav-links {
             display: none; /* Hidden by default */
@@ -156,6 +200,7 @@
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
+            z-index: 1000;
         }
         
         /* Hero section */
@@ -351,7 +396,7 @@
         }
 
         .form-control {
-            width: 120%; /* Make inputs flexible */
+            width: 100%; /* Make inputs flexible */
             height: 45px;
             border-radius: 5px;
             border: 3px solid var(--main-color);
