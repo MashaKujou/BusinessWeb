@@ -289,7 +289,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Get the footer links
   const footerLinks = document.querySelectorAll('.footer-links li a');
   
-  // Add click event listeners to the Privacy Policy and Terms of Service links
+  
+
   footerLinks.forEach(link => {
     if (link.textContent === 'Privacy Policy') {
       link.addEventListener('click', function(e) {
